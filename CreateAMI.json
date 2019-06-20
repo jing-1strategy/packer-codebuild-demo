@@ -2,7 +2,6 @@
     "variables": {
         "aws_region": "{{env `AWS_REGION`}}",
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
-        "aws_profile": null,
         "vpc_id": null,
         "subnet_id": null,
         "security_group_id": null
