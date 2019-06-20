@@ -12,7 +12,7 @@ phases:
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
       - echo "Validating CreateAMI.json"
-      - ./packer validate CreateAMI.json
+      - ./packer validate -var-file=1s-sandbox.json CreateAMI.json
   build:
     commands:
       ### HashiCorp Packer cannot currently obtain the AWS CodeBuild-assigned role and its credentials
