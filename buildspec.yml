@@ -12,7 +12,7 @@ phases:
       - echo "Installing jq..."
       - curl -qL -o jq https://stedolan.github.io/jq/download/linux64/jq && chmod +x ./jq
       - echo "Validating CreateAMI.json"
-      - ./packer validate -var-file=1s-sandbox.json CreateAMI.json
+      - ./packer validate CreateAMI.json
   build:
     commands:
       ### HashiCorp Packer cannot currently obtain the AWS CodeBuild-assigned role and its credentials
@@ -26,7 +26,7 @@ phases:
       - aws configure set aws_secret_access_key `./jq -r '.SecretAccessKey' aws_credentials.json`
       - aws configure set aws_session_token `./jq -r '.Token' aws_credentials.json`
       - echo "Building HashiCorp Packer template, CreateAMI.json"
-      - ./packer build  -var-file=1s-sandbox.json CreateAMI.json
+      - ./packer build CreateAMI.json
   post_build:
     commands:
       - echo "HashiCorp Packer build completed on `date`"
