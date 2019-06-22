@@ -2,10 +2,10 @@
     "variables": {
         "aws_region": "{{env `AWS_REGION`}}",
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
-        "vpc_id": "vpc-05ad25cd042facb61",
-        "subnet_id": "subnet-0c1df95c81e4f0b48",
-        "security_group_id": "sg-07e82f773c9220701",
-        "kms_key_id": "arn:aws:kms:us-east-1:842337631775:key/25d030f8-8900-4b01-b2c7-ba09d53138cf"
+        "vpc_id": "vpc-0aae24b90e0d93956",
+        "subnet_id": "subnet-09b3edb90e1e847e4",
+        "security_group_id": "sg-053df3b1619103976",
+        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/e7318146-6447-416f-b4a8-e978448714ee"
     },
     "builders": [
         {
@@ -31,12 +31,12 @@
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
             "encrypt_boot": true,
             "ami_regions": [
-                "us-east-1"
+                "{{user `aws_region`}}"
             ],
             "region_kms_key_ids": {
-                "us-east-1": "arn:aws:kms:us-east-1:842337631775:key/25d030f8-8900-4b01-b2c7-ba09d53138cf"
+                "us-east-1": "{{user `kms_key_id`}}"
             },
-            "kms_key_id": "arn:aws:kms:us-east-1:842337631775:key/25d030f8-8900-4b01-b2c7-ba09d53138cf",
+            "kms_key_id": "{{user `kms_key_id`}}",
             "tags": {
                 "Name": "AnalysisServer-AmazonLinux2-Encrypted"
             }
