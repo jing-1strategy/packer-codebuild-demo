@@ -30,12 +30,6 @@
             "ami_name": "AmazonLinux2-AnalysisServer-{{user `build_version`}}",
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
             "encrypt_boot": true,
-            "ami_regions": [
-                "{{user `aws_region`}}"
-            ],
-            "region_kms_key_ids": {
-                "us-east-1": "{{user `kms_key_id`}}"
-            },
             "kms_key_id": "{{user `kms_key_id`}}",
             "tags": {
                 "Name": "AnalysisServer-AmazonLinux2-Encrypted"
