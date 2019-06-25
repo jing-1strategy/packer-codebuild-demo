@@ -47,7 +47,6 @@
                     "volume_size": "{{user `second_volume_size`}}"
                 }
             ],
-            "encrypt_boot": true,
             "kms_key_id": "{{user `kms_key_id`}}",
             "tags": {
                 "Name": "AnalysisServer-AmazonLinux2-Encrypted"
