@@ -4,8 +4,8 @@
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
         "vpc_id": "vpc-0aae24b90e0d93956",
         "subnet_id": "subnet-09b3edb90e1e847e4",
-        "root_volume_size": 100,
-        "second_volume_size": 100,
+        "root_volume_size": "100",
+        "second_volume_size": "100",
         "security_group_id": "sg-0feef9058c3c3962b",
         "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/4957004a-f66e-4420-a079-66fcb45fbe72"
     },
