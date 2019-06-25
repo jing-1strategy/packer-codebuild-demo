@@ -4,8 +4,10 @@
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
         "vpc_id": "vpc-0aae24b90e0d93956",
         "subnet_id": "subnet-09b3edb90e1e847e4",
-        "security_group_id": "sg-0d81241e15006f20b",
-        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/f70f4a78-782e-40ce-9f13-6fee4949788a"
+        "root_volume_size": 100,
+        "second_volume_size": 100,
+        "security_group_id": "sg-0feef9058c3c3962b",
+        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/4957004a-f66e-4420-a079-66fcb45fbe72"
     },
     "builders": [
         {
@@ -29,6 +31,22 @@
             "ssh_username": "ec2-user",
             "ami_name": "AmazonLinux2-AnalysisServer-{{user `build_version`}}",
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
+            "ami_block_device_mappings": [
+                {
+                    "delete_on_termination": true,
+                    "device_name": "/dev/xvda",
+                    "encrypted": true,
+                    "volume_type": "gp2",
+                    "volume_size": "{{user `root_volume_size`}}"
+                },
+                {
+                    "delete_on_termination": true,
+                    "device_name": "/dev/xvdb",
+                    "encrypted": true,
+                    "volume_type": "gp2",
+                    "volume_size": "{{user `second_volume_size`}}"
+                }
+            ],
             "encrypt_boot": true,
             "kms_key_id": "{{user `kms_key_id`}}",
             "tags": {
