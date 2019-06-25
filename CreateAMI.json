@@ -31,7 +31,7 @@
             "ssh_username": "ec2-user",
             "ami_name": "AmazonLinux2-AnalysisServer-{{user `build_version`}}",
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
-            "ami_block_device_mappings": [
+            "launch_block_device_mappings": [
                 {
                     "delete_on_termination": true,
                     "device_name": "/dev/xvda",
