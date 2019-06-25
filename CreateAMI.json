@@ -4,8 +4,8 @@
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
         "vpc_id": "vpc-0aae24b90e0d93956",
         "subnet_id": "subnet-09b3edb90e1e847e4",
-        "security_group_id": "sg-0b8c2a24097965153",
-        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/3afad060-f695-4062-900c-f1a2fc89c910"
+        "security_group_id": "sg-0d81241e15006f20b",
+        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/f70f4a78-782e-40ce-9f13-6fee4949788a"
     },
     "builders": [
         {
