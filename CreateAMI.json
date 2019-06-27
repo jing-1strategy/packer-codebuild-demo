@@ -39,13 +39,15 @@
                     "device_name": "/dev/xvda",
                     "volume_size": "{{user `root_volume_size`}}",
                     "volume_type": "gp2",
-                    "delete_on_termination": true
+                    "delete_on_termination": true,
+                    "encrypted": true
                 },
                 {
                     "device_name": "/dev/sdf",
                     "volume_size": "{{user `second_volume_size`}}",
                     "volume_type": "gp2",
-                    "delete_on_termination": true
+                    "delete_on_termination": true,
+                    "encrypted": true
                 }
             ],
             "tags": {
