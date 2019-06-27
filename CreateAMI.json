@@ -4,6 +4,9 @@
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
         "vpc_id": "vpc-0aae24b90e0d93956",
         "subnet_id": "subnet-09b3edb90e1e847e4",
+        "instance_type": "t2.small",
+        "root_volume_size": "50",
+        "second_volume_size": "100",
         "security_group_id": "sg-0feef9058c3c3962b",
         "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/4957004a-f66e-4420-a079-66fcb45fbe72"
     },
@@ -14,7 +17,7 @@
             "vpc_id": "{{user `vpc_id`}}",
             "subnet_id": "{{user `subnet_id`}}",
             "security_group_id": "{{user `security_group_id`}}",
-            "instance_type": "t2.small",
+            "instance_type": "{{user `instance_type`}}",
             "source_ami_filter": {
                 "filters": {
                     "virtualization-type": "hvm",
@@ -31,6 +34,20 @@
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
             "encrypt_boot": true,
             "kms_key_id": "{{user `kms_key_id`}}",
+            "launch_block_device_mappings": [
+                {
+                    "device_name": "/dev/xvda",
+                    "volume_size": "{{user `root_volume_size`}}",
+                    "volume_type": "gp2",
+                    "delete_on_termination": true
+                },
+                {
+                    "device_name": "/dev/sdf",
+                    "volume_size": "{{user `second_volume_size`}}",
+                    "volume_type": "gp2",
+                    "delete_on_termination": true
+                }
+            ],
             "tags": {
                 "Name": "AnalysisServer-AmazonLinux2-Encrypted"
             }
