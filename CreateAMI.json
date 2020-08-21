@@ -2,13 +2,13 @@
     "variables": {
         "aws_region": "{{env `AWS_REGION`}}",
         "build_version": "{{isotime \"2006.01.02.150405\"}}",
-        "vpc_id": "vpc-0aae24b90e0d93956",
-        "subnet_id": "subnet-09b3edb90e1e847e4",
+        "vpc_id": "vpc-0fb798895fd667bd9",
+        "subnet_id": "subnet-04972c99143c096a6",
         "instance_type": "t2.small",
         "root_volume_size": "50",
         "second_volume_size": "100",
-        "security_group_id": "sg-0feef9058c3c3962b",
-        "kms_key_id": "arn:aws:kms:us-east-1:355189840595:key/4957004a-f66e-4420-a079-66fcb45fbe72"
+        "security_group_id": "sg-057224cf1a12f4a10",
+        "kms_key_id": "arn:aws:kms:us-east-1:842337631775:key/a4eb26c3-eeb2-4b52-a444-eec38567b33d"
     },
     "builders": [
         {
@@ -30,7 +30,7 @@
                 "most_recent": true
             },
             "ssh_username": "ec2-user",
-            "ami_name": "AmazonLinux2-AnalysisServer-{{user `build_version`}}",
+            "ami_name": "AmazonLinux2-PackerDemo-{{user `build_version`}}",
             "ami_description": "Amazon Linux2 Image OS with pre-installed analysis server code",
             "encrypt_boot": true,
             "kms_key_id": "{{user `kms_key_id`}}",
@@ -51,7 +51,7 @@
                 }
             ],
             "tags": {
-                "Name": "AnalysisServer-AmazonLinux2-Encrypted"
+                "Name": "PackerDemo-AmazonLinux2-Encrypted"
             }
         }
     ],
